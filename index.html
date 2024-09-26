@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags and title -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Win - Multiplayer game</title>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet" />
+    <style>
+      body {
+        background-color: #f7fafc;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+        justify-content: center;
+        align-items: center;
+      }
+      #board {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Lobby -->
+    <div
+      id="lobby"
+      class="flex flex-col items-center justify-center min-h-screen bg-blue-100 py-12">
+      <h1 class="text-4xl font-bold text-gray-800 mb-8">Tic Tac Win</h1>
+      <div class="mb-4">
+        <input
+          id="gameCodeInput"
+          type="text"
+          placeholder="Enter Game Code"
+          class="border rounded py-2 px-3 text-gray-700" />
+        <button
+          id="joinGameButton"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
+          Join Game
+        </button>
+      </div>
+      <div>
+        <button
+          id="startGameButton"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          Start New Game
+        </button>
+      </div>
+    </div>
+
+    <!-- Game Container -->
+    <div
+      id="game-container"
+      class="flex flex-col items-center justify-center min-h-screen bg-blue-100 py-12"
+      style="display: none">
+      <h1 class="text-4xl font-bold text-gray-800 mb-8">Tic Tac Win</h1>
+      <div id="turn-indicator" class="mb-4 text-2xl"></div>
+      <div id="board" class="grid grid-cols-3 gap-4">
+        <!-- Cells -->
+        <div
+          class="cell bg-white w-32 h-32 flex justify-center items-center text-4xl cursor-pointer rounded-lg shadow-md hover:bg-blue-200 transition-colors"
+          id="0"></div>
+        <div
+          class="cell bg-white w-32 h-32 flex justify-center items-center text-4xl cursor-pointer rounded-lg shadow-md hover:bg-blue-200 transition-colors"
+          id="1"></div>
+        <div
+          class="cell bg-white w-32 h-32 flex justify-center items-center text-4xl cursor-pointer rounded-lg shadow-md hover:bg-blue-200 transition-colors"
+          id="2"></div>
+        <div
+          class="cell bg-white w-32 h-32 flex justify-center items-center text-4xl cursor-pointer rounded-lg shadow-md hover:bg-blue-200 transition-colors"
+          id="3"></div>
+        <div
+          class="cell bg-white w-32 h-32 flex justify-center items-center text-4xl cursor-pointer rounded-lg shadow-md hover:bg-blue-200 transition-colors"
+          id="4"></div>
+        <div
+          class="cell bg-white w-32 h-32 flex justify-center items-center text-4xl cursor-pointer rounded-lg shadow-md hover:bg-blue-200 transition-colors"
+          id="5"></div>
+        <div
+          class="cell bg-white w-32 h-32 flex justify-center items-center text-4xl cursor-pointer rounded-lg shadow-md hover:bg-blue-200 transition-colors"
+          id="6"></div>
+        <div
+          class="cell bg-white w-32 h-32 flex justify-center items-center text-4xl cursor-pointer rounded-lg shadow-md hover:bg-blue-200 transition-colors"
+          id="7"></div>
+        <div
+          class="cell bg-white w-32 h-32 flex justify-center items-center text-4xl cursor-pointer rounded-lg shadow-md hover:bg-blue-200 transition-colors"
+          id="8"></div>
+      </div>
+      <!-- Modal for winner announcement -->
+      <div id="modal" class="modal flex">
+        <div class="bg-white p-5 rounded-lg shadow-lg text-center">
+          <h2 id="winner-announcement" class="text-2xl font-bold mb-4"></h2>
+          <button
+            id="restartGameButton"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Restart Game
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
